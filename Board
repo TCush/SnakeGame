@@ -1,1 +1,14 @@
-Hello
+import java.awt.Color;
+
+import javax.swing.JFrame;
+
+public class Game {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Snake");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1300, 1300);
+		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setVisible(true);
+	}
+}
+
