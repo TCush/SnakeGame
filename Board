@@ -1,8 +1,11 @@
 import java.awt.Color;
-
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class Game {
+
+	private ArrayList<Square> snake;
+
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Snake");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
