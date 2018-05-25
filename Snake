@@ -1,0 +1,30 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+
+import javax.swing.JComponent;
+
+public class Snake extends JComponent{
+	private static ArrayList<Square> snake;
+	private int x;
+	private int y;
+	
+	public Snake() {
+		snake = new ArrayList<Square>();
+		x = 50;
+		y = 50;
+		for(int i =0; i < 3; i ++) {
+			snake.add(new Square(Color.WHITE, x, y));
+			y+=40;
+		}
+	}
+	
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(snake.get(0).getColor());
+		for(int i = 0; i < snake.size(); i++) {
+			g2.fillRect(snake.get(i).getX(), snake.get(i).getY(), 30, 30);
+		}
+	}
+}
