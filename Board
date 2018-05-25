@@ -1,17 +1,25 @@
 import java.awt.Color;
-import java.util.ArrayList;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JFrame;
 
-public class Game {
-
-	private ArrayList<Square> snake;
-
+public class Board {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Snake");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1300, 1300);
+		frame.setSize(600, 600);
 		frame.getContentPane().setBackground(Color.BLACK);
+		Square component = new Square();
+		frame.add(component);
 		frame.setVisible(true);
+		
+		JFrame frame2 = new JFrame("Snake");
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setSize(600, 100);
+		Score component2 = new Score();
+		frame2.add(component2);
+		frame2.setVisible(true);
 	}
+	
 }
-
