@@ -9,5 +9,7 @@ public class GameComponent extends JComponent{
 		s.paintComponent(g);
 		Square s2 = new Square(Color.RED, (int)(Math.random()*600), (int)(Math.random()*600));
 		s2.paintComponent(g);
+		
+		s.move(30, 0, g);
 	}
 }
