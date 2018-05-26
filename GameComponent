@@ -1,0 +1,13 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
+public class GameComponent extends JComponent{
+	public void paintComponent(Graphics g) {
+		Snake s = new Snake();
+		s.paintComponent(g);
+		Square s2 = new Square(Color.RED, (int)(Math.random()*600), (int)(Math.random()*600));
+		s2.paintComponent(g);
+	}
+}
