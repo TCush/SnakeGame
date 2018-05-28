@@ -1,0 +1,32 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JFrame;
+
+public class Board {
+	public static void main(String[] args) {
+		
+		JFrame frame = new JFrame("Snake");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600, 600);
+		frame.setBackground(Color.BLACK);
+		
+		Snake component = new Snake();
+		frame.add(component);
+		frame.setVisible(true);
+		
+		
+		
+		
+//		
+//		JFrame frame2 = new JFrame("Score");
+//		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame2.setSize(600, 100);
+//		
+//		Score component2 = new Score();
+//		frame2.add(component2);
+//		frame2.setVisible(true);
+	}
+	
+}
