@@ -7,6 +7,7 @@ public class Snake extends JPanel implements ActionListener, KeyListener
 {
 	Timer t = new Timer(5, this);
 	double x = 0, y = 0, velx = 0, vely = 0;
+	ArrayList<Square> snake;
 	
 	public Snake()
 	{
@@ -14,6 +15,7 @@ public class Snake extends JPanel implements ActionListener, KeyListener
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
+		snake = new ArrayList<Square>();
 	}
 	
 	public void paintComponent(Graphics g)
@@ -21,7 +23,10 @@ public class Snake extends JPanel implements ActionListener, KeyListener
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Color.red);
-		g2.fill(new Rectangle2D.Double(x,y,15,15));
+		for(int i = 0; i < 3; i++) {
+			snake.add(new Square(Color.BLACK, (int) x, (int) y));
+			g2.fill(new Rectangle2D.Double(x,y + (i*40),30,30));
+		}
 			
 	}
 
