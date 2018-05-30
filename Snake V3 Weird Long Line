@@ -1,0 +1,86 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+public class Snake3 extends JPanel implements ActionListener, KeyListener
+{
+	Timer t = new Timer(5, this);
+	int x = 0, y = 0, velx = 0, vely = 0;
+	ArrayList<Body> snake;
+	
+	public Snake3()
+	{
+		t.start();
+		addKeyListener(this);
+		setFocusable(true);
+		setFocusTraversalKeysEnabled(false);
+		snake = new ArrayList<Body>();
+	}
+	
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(Color.red);
+		for(int i = 0; i < 3; i++) {
+			snake.add(new Body(Color.BLACK, x, y, 15));
+			//g2.fill(new Rectangle2D.Double(x,y + (i*40),30,30));
+		}
+		for(int i = 0; i < snake.size(); i++)
+		{
+			snake.get(i).paintComponent(g);
+		}	
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		repaint();
+		x += velx;
+		y += vely;
+	}
+	
+	public void Up()
+	{
+		velx = 0;
+		vely = -2;
+	}	
+
+	public void Down()
+	{
+		velx = 0;
+		vely = 2;
+	}
+	
+	public void Left()
+	{
+		velx = -2;
+		vely = 0;
+	}
+
+	public void Right()
+	{
+		velx = 2;
+		vely = 0;
+	}
+
+
+	public void keyPressed(KeyEvent e) 
+	{
+		int code = e.getKeyCode();
+		if(code == KeyEvent.VK_UP)
+			Up();
+		if(code == KeyEvent.VK_DOWN)
+			Down();
+		if(code == KeyEvent.VK_LEFT)
+			Left();
+		if(code == KeyEvent.VK_RIGHT)
+			Right();
+		
+	}
+
+	public void keyReleased(KeyEvent e) {}
+	
+	public void keyTyped(KeyEvent e) {}
+} 	
